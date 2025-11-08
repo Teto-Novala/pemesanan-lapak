@@ -1,0 +1,8 @@
+/* style.css - desain simple tapi menarik */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+body { font-family: 'Poppins', sans-serif; }
+.navbar-brand { font-weight: 600; }
+.card { border-radius: 12px; }
+.btn-primary { background: linear-gradient(90deg,#3b82f6,#60a5fa); border: none; }
+.btn-primary:hover { opacity: 0.95; }
+footer { margin-top: 40px; }
