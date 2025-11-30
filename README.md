@@ -13,7 +13,7 @@ Sistem Pemesanan Lapak Sederhana adalah aplikasi web yang dirancang untuk memfas
 Berikut adalah beberapa tampilan utama dari sistem ini:
 
 1. Halaman Beranda (Daftar Lapak)
-[Halaman Beranda](/halaman/index.jpg)
+[Halaman Beranda](https://github.com/Teto-Novala/pemesanan-lapak/blob/main/halaman/index_login.jpg)
 [Halaman Beranda](/halaman/index_login.jpg)
 Halaman utama yang menampilkan semua lapak yang tersedia, statusnya (`kosong` atau `dipesan`), dan tombol untuk melakukan pemesanan.
 
