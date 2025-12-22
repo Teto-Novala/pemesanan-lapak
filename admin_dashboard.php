@@ -32,14 +32,19 @@ $pesanans = $conn->query("SELECT * FROM pesanan ORDER BY id DESC");
   <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h3>Daftar Pesanan</h3>
-      <a href="kelola_lapak.php" class="btn btn-primary">Kelola Lapak</a>
+      <div>
+        <a href="dashboard_export_pdf.php" target="_blank" class="btn btn-danger me-2">
+          Export PDF
+        </a>
+        <a href="kelola_lapak.php" class="btn btn-primary">Kelola Lapak</a>
+      </div>
     </div>
 
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Nama</th>
             <th>Tanggal</th>
             <th>No Lapak</th>
@@ -48,17 +53,33 @@ $pesanans = $conn->query("SELECT * FROM pesanan ORDER BY id DESC");
           </tr>
         </thead>
         <tbody>
-          <?php while ($p = $pesanans->fetch_assoc()): ?>
+          <?php
+          $no = 1;
+          while ($p = $pesanans->fetch_assoc()):
+          ?>
             <tr>
-              <td><?= htmlspecialchars($p['id']) ?></td>
+              <td><?= $no++ ?></td>
               <td><?= htmlspecialchars($p['username']) ?></td>
               <td><?= htmlspecialchars($p['tanggal']) ?></td>
               <td><?= htmlspecialchars($p['no_lapak']) ?></td>
-              <td><?= htmlspecialchars($p['status']) ?></td>
               <td>
                 <?php if ($p['status'] == 'menunggu'): ?>
-                  <a href="ubah_status.php?id=<?= urlencode($p['id']) ?>&action=setujui" class="btn btn-sm btn-success">Setujui</a>
+                  <span class="badge bg-secondary">Menunggu</span>
+                <?php elseif ($p['status'] == 'disetujui'): ?>
+                  <span class="badge bg-success">Disetujui</span>
+                <?php elseif ($p['status'] == 'ditolak'): ?>
+                  <span class="badge bg-danger">Ditolak</span>
+                <?php else: ?>
+                  <?= htmlspecialchars($p['status']) ?>
                 <?php endif; ?>
+              </td>
+              <td>
+                <?php if ($p['status'] == 'menunggu'): ?>
+                  <a href="ubah_status.php?id=<?= urlencode($p['id']) ?>&action=setujui" class="btn btn-sm btn-success" onclick="return confirm('Setujui pesanan ini?')">Setujui</a>
+
+                  <a href="ubah_status.php?id=<?= urlencode($p['id']) ?>&action=tolak" class="btn btn-sm btn-warning text-white" onclick="return confirm('Tolak pesanan ini?')">Tolak</a>
+                <?php endif; ?>
+
                 <a href="ubah_status.php?id=<?= urlencode($p['id']) ?>&action=hapus" class="btn btn-sm btn-danger" onclick="return confirm('Hapus pesanan?')">Hapus</a>
               </td>
             </tr>
