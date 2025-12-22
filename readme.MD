@@ -7,3 +7,5 @@ ada 3 role untuk web ini yaitu role Guest, User, dan Admin
 Tiap tiap role memiliki halamannya sendiri
 
 Role Guest
+
+![Keterangan Gambar](halaman/index.jpg)
