@@ -1,70 +1,93 @@
-Sistem Pemesanan Lapak Sederhana
+# 🏪 Sistem Informasi Pemesanan Lapak Sederhana
 
-ini adalah web untuk sistem pemesanan lapak
+Aplikasi berbasis web untuk memudahkan proses penyewaan dan pengelolaan lapak. Sistem ini memfasilitasi pengguna untuk memesan tempat usaha dan memberikan kontrol penuh kepada admin untuk mengelola data lapak serta validasi pesanan.
 
-ada 3 role untuk web ini yaitu role Guest, User, dan Admin
+## 👥 Hak Akses (User Roles)
 
-Tiap tiap role memiliki halamannya sendiri
+Terdapat 3 role pengguna dalam sistem ini:
+1. **Guest (Pengunjung):** Melihat ketersediaan lapak.
+2. **User (Penyewa):** Melakukan pemesanan lapak.
+3. **Admin (Pengelola):** Mengelola data lapak, validasi pesanan, dan laporan.
 
-Role Guest
+---
 
-1. halaman landing page
-![Keterangan Gambar](halaman/index.jpg)
-Disini ada navbar yang ada logo dan tombol login dan register
-Lalu di bawahnya ada kumpulan card yang isinya adalah lapak yang bisa di pesan karena belum login maka tampilan button nya login untuk pesan
+## 📸 Fitur & Tampilan Antarmuka
 
-2. halaman login
-![Keterangan Gambar](halaman/login.jpg)
-Disini adalah halaman login untuk user dan admin, mengisi form username dan password
+### 1. Role: Guest (Pengunjung)
+Pengunjung yang belum login hanya dapat melihat katalog lapak.
 
-3. halaman register
-![Keterangan Gambar](halaman/register.jpg)
-Disini halaman register untuk akun baru, formnya mengisi username, email dan password
+* **Landing Page**
+  Menampilkan navbar (Login/Register) dan daftar kartu (card) lapak. Tombol pada card akan mengarahkan ke halaman Login jika user belum masuk.
+  ![Landing Page Guest](halaman/index.jpg)
 
+* **Halaman Login**
+  Form masuk untuk User dan Admin.
+  ![Halaman Login](halaman/login.jpg)
 
-Role User
-1. halaman landing page
-![Keterangan Gambar](halaman/index_login.jpg)
-Disini sama seperti halaman guest bedanya di navbar bukann button login dan register tapi text halo dan button logout
-di card tombol pesan jadi tampil karena sudah login dan dklik maka redirect ke halaman pesan
+* **Halaman Register**
+  Form pendaftaran akun baru (Username, Email, Password).
+  ![Halaman Register](halaman/register.jpg)
 
-2. halaman pesan
-![Keterangan Gambar](halaman/pesan.jpg)
-Disini adalah halaman untuk user memesan lapak, tinggal isi username dan email saja
+### 2. Role: User (Penyewa)
+Setelah login, pengunjung berubah menjadi User dan memiliki akses untuk menyewa.
 
+* **User Landing Page**
+  Tampilan serupa dengan Guest, namun navbar menampilkan sapaan user dan tombol Logout. Tombol pada card berubah menjadi "Pesan" yang mengarah ke form pemesanan.
+  ![Landing Page User](halaman/index_login.jpg)
 
-Role Admin
-1. halaman Dashboard
-![Keterangan Gambar](halaman/admin_dashboard.jpg)
-Ini adalah halaman dashboard untuk admin, isinya ada button export pdf untuk mengarsipkan riwayat pesanan user dan button kelola lapak untuk pindah ke halaman kelola lapak
-Dibawahnya ada Daftar pesanan user yang statusnya menunggu, ditolak dan disetujui, dan disampling per listya ada button untuk mengubah status dari pesanan tersebut
+* **Halaman Pemesanan**
+  Form sederhana untuk konfirmasi pemesanan lapak (Username & Email).
+  ![Form Pesan](halaman/pesan.jpg)
 
-2. isi pdf pesanan
-![Keterangan Gambar](halaman/pdf.jpg)
-Ini adalah pdf yang dihasilkan dari button export pdf tadi
+### 3. Role: Admin (Pengelola)
+Admin memiliki akses penuh terhadap manajemen sistem.
 
-3. kelola lapak
-![Keterangan Gambar](halaman/kelola_lapak.jpg)
-disini berisi tombol export pdf untuk arsip lapak ke pdf dan tombol tambah lapak untuk pindah ke halaman tambah lapak
-ada tampilan untuk daftar lapak untuk di sewakan nantinya. per listnya memiliki tombol edit untuk pindah ke halaman edit dan hapus untuk menghilangkannya
+* **Dashboard Admin**
+  Pusat kontrol untuk melihat daftar pesanan masuk dengan status (Menunggu, Ditolak, Disetujui). Admin dapat mengubah status pesanan secara langsung dan Export PDF riwayat pesanan.
+  ![Dashboard Admin](halaman/admin_dashboard.jpg)
 
-4. isi pdf lapak
-![Keterangan Gambar](halaman/pdf_lapak.jpg)
-ini isi dari pdf lapak
+* **Laporan PDF (Riwayat Pesanan)**
+  Fitur ekspor data riwayat pesanan ke dalam format PDF untuk pengarsipan.
+  ![PDF Pesanan](halaman/pdf.jpg)
 
-5. tambah lapak
-![Keterangan Gambar](halaman/tambah_lapak.jpg)
-ini adalah halaman tambah lapak, kita mengisi nomor lapak, statusnya kosong atau dipesan lalu mengupload gambar
+* **Manajemen Kelola Lapak**
+  Halaman CRUD (Create, Read, Update, Delete) untuk data lapak dan Export PDF data lapak.
+  ![Kelola Lapak](halaman/kelola_lapak.jpg)
 
-6. edit lapak
-![Keterangan Gambar](halaman/edit_lapak.jpg)
-halaman untuk mengedit lapak yang sudah dibuat, bisa mengedit nomor, status dan gambarnya
+* **Form Tambah Lapak**
+  Input data lapak baru (Nomor Lapak, Status, Upload Gambar).
+  ![Tambah Lapak](halaman/tambah_lapak.jpg)
 
-akun uji coba:
-admin
-username : admin
-password : 123
+* **Form Edit Lapak**
+  Mengubah data lapak yang sudah ada.
+  ![Edit Lapak](halaman/edit_lapak.jpg)
 
-user
-username : ahmad
-password : 123
+* **Laporan PDF (Data Lapak)**
+  Fitur ekspor data seluruh lapak yang terdaftar ke format PDF.
+  ![PDF Lapak](halaman/pdf_lapak.jpg)
+
+---
+
+## 🔐 Akun Uji Coba (Demo Account)
+
+Gunakan kredensial berikut untuk mencoba sistem:
+
+| Role | Username | Password |
+| :--- | :--- | :--- |
+| **Admin** | `admin` | `123` |
+| **User** | `ahmad` | `123` |
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+* **Bahasa Pemrograman:** PHP Native
+* **Frontend:** HTML, CSS, Tailwind
+* **Database:** MySQL
+* **Library Tambahan:** FPDF (untuk export PDF)
+
+## 🚀 Cara Instalasi
+1. Clone repositori ini.
+2. Buat database baru di phpMyAdmin.
+3. Import file database yang disertakan.
+4. Sesuaikan konfigurasi koneksi database di file project.
+5. Jalankan di local server (XAMPP/Laragon).
